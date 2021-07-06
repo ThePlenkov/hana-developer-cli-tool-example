@@ -1,7 +1,7 @@
 const base = require("../utils/base")
 
-const fsp = require('fs/promises');
-const path = require("path");
+const fsp = require('fs').promises
+const path = require("path")
 
 
 exports.command = 'massConvert [schema] [table]'
@@ -265,7 +265,10 @@ async function getTables(prompts) {
                 console.log(`${base.bundle.getText("contentWritten")}: ${filename}`);             
                 
                 // store synonyms if filename is provided
-                if (prompts.synonyms) {                    
+                if (prompts.synonyms) {    
+                    if(!prompts.synonyms.includes('hdbsynonym')){
+                        prompts.synonyms += '.hdbsynonym'
+                    }
                     await fsp.mkdir(path.dirname(prompts.synonyms), {recursive:true})
                     await fsp.writeFile(
                         prompts.synonyms,

@@ -4,6 +4,29 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
+## 2.202106.3
+
+### Fixed
+- massConvert - change `require('fs/promises')` to `require('fs').promises` for compatibility with Node 12.x - see [Update fs.md #35740](https://github.com/nodejs/node/issues/35740)
+  
+## 2.202106.2
+### Added
+- New commands schemaInstances, securestore, and sbss to list cf/xs services instances of these plan types
+
+## 2.202106.1
+- Merge [mass rename](https://gist.github.com/ThePlenkov/2fc31e05a43a4ec395c9a4d8f6c8276a#gistcomment-3759807) from [@ThePlenkov](https://github.com/ThePlenkov) 
+- Fix [Issue with connecting to XS Advance Database #53](https://github.com/SAP-samples/hana-developer-cli-tool-example/issues/53)
+- Remove warning during HDI deploy from db module created with createModule due to reference to afllangprocedure in the generated .hdiconfig
+- 
+  
+## 2.202105.9
+
+### Added
+- New functionality for massConvert command to also generate hdbsynonyms. [Generate hdbsynonyms along with CDS for massConvert operation #48](https://github.com/SAP-samples/hana-developer-cli-tool-example/issues/48) - thanks to [@ThePlenkov](https://github.com/ThePlenkov)
+- Add "no colons" mode for massConvert. This is an option to remove :: from namespaces which would complicate usage from CAP CDS. :: will be replaced by dot. [no colons mode for massConvert #50](https://github.com/SAP-samples/hana-developer-cli-tool-example/issues/50) - thanks to [@ThePlenkov](https://github.com/ThePlenkov)
+- [Exclude user defined types from generated CDS](https://github.com/SAP-samples/hana-developer-cli-tool-example/issues/51) in massConvert - thanks to [@ThePlenkov](https://github.com/ThePlenkov)
+- cds command wasn't using the new connection information lookup logic
+  
 ## 2.202105.8
 
 ### Added
